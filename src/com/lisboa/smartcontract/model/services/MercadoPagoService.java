@@ -7,14 +7,12 @@ import com.lisboa.smartcontract.model.interfaces.OnlinePaymentInterface;
 
 import java.util.Calendar;
 
-public class PaypalService implements OnlinePaymentInterface {
+public class MercadoPagoService implements OnlinePaymentInterface {
 
     @Override
     public void processPayment(Contract contract) {
 
-        ProcessPlotCorrectedValue processPlotCorrectedValue = new ProcessPlotCorrectedValue(0.01, 0.02);
+        ProcessPlotCorrectedValue processPlotCorrectedValue = new ProcessPlotCorrectedValue(0.02, 0.03);
         processPlotCorrectedValue.processPlotCorrectedValue(contract);
-
     }
-
 }
