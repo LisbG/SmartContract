@@ -1,5 +1,7 @@
 package com.lisboa.smartcontract.model.entities;
 
+import com.lisboa.smartcontract.model.interfaces.OnlinePaymentInterface;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,12 +13,14 @@ public class Contract {
     private double contractTotalValue;
     private int contractPlotQuantity;
 
-    private List<Plot> plots = new ArrayList<>();
+    private final OnlinePaymentInterface onlinePaymentInterface;
+    private final List<Plot> plots = new ArrayList<>();
 
-    public Contract(Date contractDate, double contractTotalValue, int contractPlotQuantity) {
+    public Contract(Date contractDate, double contractTotalValue, int contractPlotQuantity, OnlinePaymentInterface onlinePaymentInterface) {
         this.contractDate = contractDate;
         this.contractTotalValue = contractTotalValue;
         this.contractPlotQuantity = contractPlotQuantity;
+        this.onlinePaymentInterface = onlinePaymentInterface;
     }
 
     public String getContractId() {
@@ -53,5 +57,9 @@ public class Contract {
 
     public void setPlots(Plot plot) {
         this.plots.add(plot);
+    }
+
+    public void processPayment(){
+        this.onlinePaymentInterface.processPayment(this);
     }
 }

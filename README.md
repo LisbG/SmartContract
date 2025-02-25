@@ -1,6 +1,6 @@
 # SmartContract
 
-> Status: Em desenvolvimento
+> Status: Desenvolvido
 
 ## Descrição
 

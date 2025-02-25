@@ -4,11 +4,9 @@ import com.lisboa.smartcontract.model.entities.Contract;
 import com.lisboa.smartcontract.model.entities.Plot;
 import com.lisboa.smartcontract.model.interfaces.OnlinePaymentInterface;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-public class ProcessPlots implements OnlinePaymentInterface {
+public class PaypalService implements OnlinePaymentInterface {
 
     @Override
     public void processPayment(Contract contract) {

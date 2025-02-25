@@ -2,7 +2,7 @@ package com.lisboa.smartcontract.application;
 
 import com.lisboa.smartcontract.model.entities.Contract;
 import com.lisboa.smartcontract.model.entities.Plot;
-import com.lisboa.smartcontract.model.services.ProcessPlots;
+import com.lisboa.smartcontract.model.services.PaypalService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,11 +32,9 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        Contract contract = new Contract(contractDate, contractTotalValue, contractPlotQuantity);
+        Contract contract = new Contract(contractDate, contractTotalValue, contractPlotQuantity, new PaypalService());
 
-        ProcessPlots processPlots = new ProcessPlots();
-
-        processPlots.processPayment(contract);
+        contract.processPayment();
 
         for (Plot plot : contract.getPlots()) {
             System.out.println(plot.toString());
